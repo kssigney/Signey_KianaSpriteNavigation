@@ -14,7 +14,7 @@ var panda;
 var speed = 10;
 
 // This is a 'sprite' which we can move
-var me;
+var bee;
 var speed = 5;
 
 // The is a static sprite
@@ -38,7 +38,7 @@ function setup() {
   panda = createSprite(500, 127);
 
   // create a sprite with dimensions
-  me = createSprite(80, 80);
+  bee = createSprite(80, 80);
 
   // This is a *numbered* sequence of PNG files
   // We add animation to different sprites
@@ -46,7 +46,7 @@ function setup() {
 
   // This is a *numbered* sequence of PNG files
   // We add animation to different sprites
-  me.addAnimation('floating', 'assets/me-01.png', 'assets/me-03.png');
+  bee.addAnimation('floating', 'assets/bee-01.png', 'assets/bee-03.png');
 
   // create a star in the middle of the screen
   star = createSprite(width/2, height/2);
@@ -62,7 +62,7 @@ function draw() {
 
   // trap keyboard arrow keys
   checkMovement();
-  checkmeMovement();
+  checkbeeMovement();
   
   // drawSprites is a function in p5.play, draws all the sprites
   drawSprites();
@@ -112,34 +112,34 @@ function pandaCollision(spriteA, spriteB) {
   //spriteB.remove();
 }
 
-function checkmeMovement() {
+function checkbeeMovement() {
   // Check x movement
   if(keyIsDown(D_KEY)) {
-    me.velocity.x = speed;
+    bee.velocity.x = speed;
   }
   else if(keyIsDown(A_KEY)) {
-    me.velocity.x = -speed;
+    bee.velocity.x = -speed;
   }
   else {
-    me.velocity.x = 0;
+    bee.velocity.x = 0;
   }
 
   // Check y movement
   if(keyIsDown(S_KEY)) {
-    me.velocity.y = speed;
+    bee.velocity.y = speed;
   }
   else if(keyIsDown(W_KEY)) {
-    me.velocity.y = -speed;
+    bee.velocity.y = -speed;
   }
   else {
-    me.velocity.y = 0;
+    bee.velocity.y = 0;
   }
 }
 // SpriteA is the sprite in question, spriteA will be ghost in this case
 // SpriteB is the one that it collided with
-function meCollision(spriteA, spriteB) {
-  me.position.x = 100;
-  me.position.y = 100;
+function beeCollision(spriteA, spriteB) {
+  bee.position.x = 100;
+  bee.position.y = 100;
 
   //spriteB.remove();
 }
